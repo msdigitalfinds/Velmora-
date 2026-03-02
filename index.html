@@ -1,0 +1,190 @@
+<!-- START OF UPGRADED VELMORA LUXURY SINGLE HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velmora Luxury | Premium Curated Deals</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--dark:#0e0e0e;--gold:#d4af37;--light:#ffffff;--gray:#1a1a1a;}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--dark);color:var(--light);transition:0.3s;}
+h1,h2{font-family:'Playfair Display',serif;}
+.navbar{display:flex;justify-content:space-between;padding:20px;background:#000;position:sticky;top:0;z-index:100;}
+.logo span{color:var(--gold);}
+.nav-right input, .nav-right select{padding:6px 10px;margin-right:10px;border-radius:5px;border:none;}
+.hero{text-align:center;padding:100px 20px;}
+.btn-primary{background:var(--gold);color:#000;padding:12px 30px;text-decoration:none;font-weight:600;border-radius:6px;transition:0.3s;}
+.btn-primary:hover{opacity:0.85;}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;padding:20px;}
+.tab{padding:10px 20px;background:var(--gray);cursor:pointer;border-radius:5px;}
+.tab.active{background:var(--gold);color:#000;}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:20px;}
+.card{background:var(--gray);padding:20px;border-radius:10px;transition:0.3s;position:relative;}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(212,175,55,0.3);}
+.card img{width:100%;border-radius:8px;}
+.price{color:var(--gold);font-weight:600;}
+.badge{position:absolute;top:10px;left:10px;background:var(--gold);color:#000;padding:5px 10px;font-weight:600;border-radius:5px;font-size:12px;}
+footer{text-align:center;padding:40px;background:#000;margin-top:40px;}
+.light{background:#fff;color:#000;}
+.light .card{background:#f0f0f0;color:#000;}
+.wishlist-btn{position:absolute;top:10px;right:10px;background:#fff;color:#000;padding:5px;border-radius:50%;cursor:pointer;}
+.email-popup{position:fixed;bottom:20px;right:20px;background:var(--gold);padding:20px;border-radius:10px;display:none;z-index:200;}
+.email-popup input{padding:8px;margin-right:10px;border:none;border-radius:5px;}
+.email-popup button{padding:8px 12px;border:none;border-radius:5px;background:#000;color:#fff;cursor:pointer;}
+.related-products{margin-top:15px;padding-top:15px;border-top:1px solid var(--gold);}
+.related-products h4{margin-bottom:10px;}
+.related-products .related-grid{display:flex;gap:10px;overflow-x:auto;}
+.related-products .related-card{min-width:150px;background:var(--gray);padding:10px;border-radius:5px;text-align:center;}
+.recently-viewed{background:var(--gray);padding:20px;border-radius:10px;margin:40px;}
+.recently-viewed h3{margin-bottom:15px;}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">Velmora <span>Luxury</span></div>
+  <div class="nav-right">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <select id="priceSelect"><option value="all">All Prices</option></select>
+    <button id="modeToggle">🌙</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Elevate Your Lifestyle</h1>
+  <p>Premium curated luxury picks for modern achievers.</p>
+  <a href="#products" class="btn-primary">Explore Collection</a>
+</section>
+
+<div class="tabs" id="categoryTabs"></div>
+<section id="products" class="product-grid"></section>
+
+<section class="recently-viewed" id="recentlyViewed">
+  <h3>Recently Viewed</h3>
+  <div class="recent-grid"></div>
+</section>
+
+<footer>
+  <p>© 2026 Velmora Luxury</p>
+  <p>Affiliate Disclosure: We may earn commissions from qualifying purchases.</p>
+</footer>
+
+<div class="email-popup" id="emailPopup">
+  <input type="email" id="emailInput" placeholder="Enter your email">
+  <button id="emailSubmit">Subscribe</button>
+</div>
+
+<script>
+// ===== PRODUCTS DATA =====
+let products=[
+  {name:"Smart Watch",price:7999,description:"Luxury AMOLED display smartwatch",image:"https://via.placeholder.com/300",affiliate:"#",category:"Watches",badge:"Best Seller"},
+  {name:"Noise Cancelling Headphones",price:11999,description:"Elite sound experience",image:"https://via.placeholder.com/300",affiliate:"#",category:"Audio",badge:"Hot Deal"},
+  {name:"Leather Wallet",price:2999,description:"Handcrafted genuine leather wallet",image:"https://via.placeholder.com/300",affiliate:"#",category:"Accessories",badge:"Trending"},
+  {name:"Designer Sunglasses",price:5999,description:"Stylish luxury sunglasses",image:"https://via.placeholder.com/300",affiliate:"#",category:"Accessories",badge:"Hot Deal"},
+  {name:"Luxury Backpack",price:8999,description:"Premium leather backpack",image:"https://via.placeholder.com/300",affiliate:"#",category:"Bags",badge:"Best Seller"},
+  {name:"Premium Perfume",price:3999,description:"Elite fragrance collection",image:"https://via.placeholder.com/300",affiliate:"#",category:"Beauty",badge:"Trending"},
+  {name:"Smart Shoes",price:10999,description:"Tech-enabled smart shoes",image:"https://via.placeholder.com/300",affiliate:"#",category:"Shoes",badge:"Best Seller"},
+  {name:"Luxury Watch Strap",price:1999,description:"Genuine leather strap",image:"https://via.placeholder.com/300",affiliate:"#",category:"Watches",badge:"Trending"},
+  {name:"High-End Earbuds",price:6999,description:"Noise isolating earbuds",image:"https://via.placeholder.com/300",affiliate:"#",category:"Audio",badge:"Hot Deal"},
+  {name:"Designer Handbag",price:12999,description:"Luxury handbag collection",image:"https://via.placeholder.com/300",affiliate:"#",category:"Bags",badge:"Best Seller"}
+];
+
+// ===== PRICE FILTER OPTIONS =====
+let priceRanges=[
+  {label:"199 to 399",min:199,max:399},
+  {label:"399 to 699",min:399,max:699},
+  {label:"699 to 1000",min:699,max:1000},
+  {label:"1000 to 5000",min:1000,max:5000},
+  {label:"5000 to 10000",min:5000,max:10000},
+  {label:"10000 to 15999",min:10000,max:15999},
+  {label:"16000 to 19999",min:16000,max:19999},
+  {label:"20000 to 24999",min:20000,max:24999},
+  {label:"25000 to 29999",min:25000,max:29999},
+  {label:"30000 to 34999",min:30000,max:34999},
+  {label:"35000 to 39999",min:35000,max:39999},
+  {label:"40000 to 44999",min:40000,max:44999},
+  {label:"45000 to 49999",min:45000,max:49999},
+  {label:"50000 to 59999",min:50000,max:59999},
+  {label:"60000 to 69999",min:60000,max:69999},
+  {label:"70000 to 79999",min:70000,max:79999},
+  {label:"80000 to 89999",min:80000,max:89999},
+  {label:"90000 to 99999",min:90000,max:99999},
+  {label:"100000 to 150000",min:100000,max:150000},
+  {label:"150000 to 200000",min:150000,max:200000},
+];
+
+// ===== RENDER PRICE SELECT =====
+const priceSelect=document.getElementById("priceSelect");
+priceRanges.forEach(p=>{
+  priceSelect.innerHTML+=`<option value="${p.min}-${p.max}">${p.label}</option>`;
+});
+
+// ===== CATEGORY TABS =====
+const categoryTabs=document.getElementById("categoryTabs");
+let categories=["All",...new Set(products.map(p=>p.category))];
+categories.forEach(cat=>{
+  let tab=document.createElement("div");
+  tab.className="tab";
+  tab.innerText=cat;
+  tab.onclick=()=>{document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));tab.classList.add("active");filterProducts();};
+  if(cat==="All") tab.classList.add("active");
+  categoryTabs.appendChild(tab);
+});
+
+// ===== FILTER PRODUCTS =====
+function filterProducts(){
+  let selectedCat=document.querySelector(".tab.active").innerText;
+  let priceValue=priceSelect.value;
+  let filtered=products;
+  if(selectedCat!=="All") filtered=filtered.filter(p=>p.category===selectedCat);
+  if(priceValue!=="all"){
+    let [min,max]=priceValue.split("-").map(Number);
+    filtered=filtered.filter(p=>p.price>=min && p.price<=max);
+  }
+  renderProducts(filtered);
+}
+
+// ===== RENDER PRODUCTS WITH RELATED =====
+function renderProducts(list){
+  const container=document.getElementById("products");
+  container.innerHTML="";
+  list.forEach(p=>{
+    let related=products.filter(r=>r.category===p.category && r.name!==p.name).slice(0,3);
+    let relatedHtml=related.length>0?`<div class="related-products"><h4>Related Products</h4><div class="related-grid">${related.map(r=>`<div class="related-card"><img src="${r.image}" style="width:100px;"><p>${r.name}</p></div>`).join("")}</div></div>`:"";
+    container.innerHTML+=`
+      <div class="card">
+        <div class="badge">${p.badge}</div>
+        <div class="wishlist-btn" onclick="toggleWishlist('${p.name}')">❤</div>
+        <img src="${p.image}" loading="lazy">
+        <h3>${p.name}</h3>
+        <p class="price">₹${p.price}</p>
+        <p>${p.description}</p>
+        <a href="${p.affiliate}" target="_blank" class="btn-primary">Buy Now</a>
+        ${relatedHtml}
+      </div>
+    `;
+  });
+}
+
+// ===== WISHLIST =====
+let wishlist=[];
+function toggleWishlist(name){if(wishlist.includes(name)){wishlist=wishlist.filter(i=>i!==name);}else{wishlist.push(name);} alert("Wishlist: "+wishlist.join(","));}
+
+// ===== EVENT LISTENERS =====
+document.getElementById("searchInput").addEventListener("input",filterProducts);
+priceSelect.addEventListener("change",filterProducts);
+document.getElementById("modeToggle").addEventListener("click",()=>{document.body.classList.toggle("light");});
+
+// ===== EMAIL POPUP =====
+setTimeout(()=>{document.getElementById("emailPopup").style.display="block";},5000);
+document.getElementById("emailSubmit").addEventListener("click",()=>{
+  const email=document.getElementById("emailInput").value;
+  if(email){alert("Subscribed: "+email);document.getElementById("emailPopup").style.display="none";}
+});
+
+// ===== INITIAL RENDER =====
+filterProducts();
+</script>
+</body>
+</html>
