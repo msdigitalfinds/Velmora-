@@ -3,193 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velmora Luxury | Ultra Premium Collection</title>
+    
+    <title>Velmora Luxury | Premium Smartwatches, Audio & Elite Collections</title>
+    <meta name="description" content="Discover Velmora Luxury's curated collection of elite essentials. Shop premium smartwatches, high-end audio, luxury stationery, and fashion accessories.">
+    <meta name="keywords" content="luxury shopping, premium smartwatches, elite accessories, Velmora Luxury, high-end electronics">
+    <meta name="author" content="Velmora Luxury">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Velmora Luxury",
+      "description": "Ultra Premium Collection of Elite Essentials",
+      "url": "https://yourdomain.com",
+      "category": "Luxury Lifestyle"
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; --white: #ffffff; --border: #333; }
         body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--dark); color: var(--white); scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
-        /* Navbar */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #000; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--gold); }
         
-        input { padding: 12px 20px; border-radius: 25px; border: 1px solid #444; background: #111; color: #fff; outline: none; transition: 0.3s; font-size: 14px; width: 100%; box-sizing: border-box; }
-        input:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
-
-        /* Hero */
-        .hero { height: 45vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1513584684374-8bdb74a9fe2f?w=1400'); background-size: cover; background-position: center; padding: 0 10%; border-bottom: 1px solid var(--gold); }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 15px; letter-spacing: 1px; color: var(--white); }
-        .hero p { color: var(--gold); font-size: 1rem; max-width: 800px; line-height: 1.6; font-weight: 300; font-style: italic; }
+        input, select { padding: 12px 20px; border-radius: 25px; border: 1px solid #444; background: #111; color: #fff; outline: none; transition: 0.3s; font-size: 14px; width: 100%; box-sizing: border-box; }
         
-        /* Categories Tab System */
+        .hero { height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1513584684374-8bdb74a9fe2f?w=1400'); background-size: cover; background-position: center; padding: 0 10%; border-bottom: 1px solid var(--gold); }
+        .hero h1 { font-size: 2rem; margin-bottom: 10px; color: var(--white); }
+        .hero p { color: var(--gold); font-size: 0.9rem; max-width: 800px; font-style: italic; }
+        
         .container { padding: 20px 5%; }
-        .filter-section { margin-bottom: 25px; }
+        .filter-section { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
+        .search-price-row { display: flex; gap: 10px; flex-wrap: wrap; }
         
-        .tabs-container { position: relative; margin-top: 15px; }
-        .tabs { display: flex; gap: 10px; overflow-x: auto; padding: 10px 0; scrollbar-width: none; -ms-overflow-style: none; }
+        .tabs { display: flex; gap: 10px; overflow-x: auto; padding: 10px 0; scrollbar-width: none; }
         .tabs::-webkit-scrollbar { display: none; }
+        .tab { padding: 8px 18px; background: #1a1a1a; cursor: pointer; border-radius: 30px; border: 1px solid var(--border); white-space: nowrap; font-size: 12px; color: #ccc; transition: 0.3s; }
+        .tab.active { background: var(--gold); color: #000; font-weight: 600; border-color: var(--gold); }
         
-        .tab { padding: 8px 18px; background: #1a1a1a; cursor: pointer; border-radius: 30px; border: 1px solid var(--border); white-space: nowrap; font-size: 12px; transition: 0.3s; color: #ccc; }
-        .tab:hover { border-color: var(--gold); }
-        .tab.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 600; }
-        
-        /* Grid Layout */
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .card { background: #111; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); display: flex; flex-direction: column; position: relative; }
         
-        .card { background: #111; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid var(--border); transition: 0.4s; }
-        .card img { width: 100%; height: 160px; object-fit: cover; }
-        .card-content { padding: 12px; }
+        /* Wishlist Icon */
+        .wishlist-btn { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 10; font-size: 16px; transition: 0.3s; }
+        .wishlist-btn.active { color: #ff4757; }
+
+        .card img { width: 100%; height: 150px; object-fit: cover; }
+        .card-content { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; }
         
-        .card-content h3 { font-size: 13px; margin: 5px 0; font-weight: 600; height: 36px; overflow: hidden; color: var(--white); }
-        .product-desc { font-size: 10px; color: #888; margin-bottom: 10px; line-height: 1.3; height: 26px; overflow: hidden; }
-        .price { color: var(--gold); font-size: 1rem; font-weight: bold; }
+        .smart-message { font-size: 10px; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 8px; border-left: 3px solid var(--gold); margin-bottom: 10px; border-radius: 0 4px 4px 0; line-height: 1.4; min-height: 40px; }
 
-        .btn-buy { display: block; background: var(--gold); color: #000; text-align: center; padding: 8px; text-decoration: none; font-weight: 600; border-radius: 6px; margin-top: 10px; font-size: 11px; transition: 0.3s; }
-        .btn-buy:hover { background: var(--white); }
-
-        /* Pagination */
-        .pagination { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 30px 0; }
-        .page-btn { background: #111; color: var(--gold); border: 1px solid var(--gold); padding: 8px 20px; border-radius: 20px; cursor: pointer; font-size: 12px; transition: 0.3s; }
-        .page-btn:disabled { opacity: 0.3; }
-
-        footer { text-align: center; padding: 30px; background: #000; border-top: 1px solid var(--border); font-size: 11px; color: #555; }
+        /* Review Stars */
+        .rating { color: var(--gold); font-size: 10px; margin-bottom: 5px; }
         
-        .light-mode { background: #f9f9f9; color: #222; }
-        .light-mode .card, .light-mode .filter-section { background: #fff; }
-        .light-mode .tab { background: #eee; color: #333; }
-        .light-mode .hero h1 { color: #000; }
+        .card-content h3 { font-size: 13px; margin: 5px 0; color: var(--white); height: 36px; overflow: hidden; }
+        .price { color: var(--gold); font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+        .btn-buy { display: block; background: var(--gold); color: #000; text-align: center; padding: 10px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 11px; margin-top: auto; }
+
+        footer { text-align: center; padding: 30px; background: #000; font-size: 11px; color: #555; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
     <a href="#" class="logo">Velmora <span>Luxury</span></a>
-    <div class="nav-tools">
-        <button id="themeToggle" style="background:none; border:none; color:inherit; cursor:pointer; font-size: 18px;">🌙</button>
-    </div>
 </nav>
 
 <section class="hero">
-    <h1>Experience True Elegance</h1>
-    <p>Step into a world of unparalleled prestige. Discover our masterfully crafted collection of elite essentials, where every piece tells a story of absolute luxury and timeless sophistication.</p>
+    <h1>Curated Excellence</h1>
+    <p>Discover 20+ categories of masterfully crafted elite essentials designed for those who settle for nothing but the best.</p>
 </section>
 
 <div class="container">
     <div class="filter-section">
-        <input type="text" id="searchInput" placeholder="Search products...">
-        <div class="tabs-container">
-            <div class="tabs" id="categoryTabs"></div>
+        <div class="search-price-row">
+            <input type="text" id="searchInput" placeholder="Search elite products...">
+            <select id="priceRange">
+                <option value="all">Price: All</option>
+                <option value="199-500">₹199 - ₹500</option>
+              <option value="500-1000">₹500 - ₹1,000</option>
+        
+                <option value="1000-5000">₹1,000 - ₹5,000</option>
+                <option value="5000-10000">5000 - ₹1,0000</option>
+        <option value="10000-25000">10000 - ₹25000</option>
+                <option value="25000-50000">₹199 - ₹1,000</option>
+        
+        
+                <option value="5000-above">Above ₹5,00000</option>
+            </select>
         </div>
+        <div class="tabs" id="categoryTabs"></div>
     </div>
 
     <div class="grid" id="productGrid"></div>
-
-    <div class="pagination">
-        <button class="page-btn" id="prevBtn" onclick="changePage(-1)">Prev</button>
-        <span id="pageInfo" style="font-size: 12px;">Page 1</span>
-        <button class="page-btn" id="nextBtn" onclick="changePage(1)">Next</button>
-    </div>
 </div>
 
 <footer>
-    <p>© 2026 Velmora Luxury. All Rights Reserved.</p>
+    <p>© 2026 Velmora Luxury. Elevating Your Lifestyle.</p>
 </footer>
 
 <script>
-const categories = [
-    "All", "Smartwatch", "Electronics", "Men's Fashion", "Women's Fashion", 
-    "Accessories", "Watches", "Footwear", "Home Decor", "Kitchen", 
-    "Beauty", "Skincare", "Gadgets", "Audio", "Gaming", 
-    "Fitness", "Bags", "Travel", "Stationery", "Fragrances", "Jewelry"
-];
+const categories = ["All", "Smartwatch", "Audio", "Accessories", "Stationery", "Fashion", "Footwear", "Watches", "Electronics", "Beauty", "Skincare", "Fragrances", "Home Decor", "Kitchen", "Gadgets", "Gaming", "Fitness", "Travel", "Bags", "Jewelry", "Wellness"];
 
 const products = [
-    { id: 1, name: "Amazfit Active Max", price: 15999, cat: "Smartwatch", img: "https://m.media-amazon.com/images/I/71R9G2Y9P0L._SX679_.jpg", desc: "AMOLED display, 25-day battery, GPS tracking.", affiliate: "https://amzn.to/4lbSiB5" },
-    { id: 2, name: "Premium Leather Wallet", price: 1299, cat: "Accessories", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", desc: "Handcrafted genuine leather wallet.", affiliate: "#" },
-    { id: 3, name: "Wireless Noise Cancelling Headphones", price: 18500, cat: "Audio", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500", desc: "Studio grade sound quality with deep bass.", affiliate: "#" },
-    { id: 4, name: "Golden Luxury Fountain Pen", price: 4500, cat: "Stationery", img: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=500", desc: "24K Gold plated nib for smooth writing.", affiliate: "#" }
+    { id: 1, name: "Amazfit Active Max", price: 15999, cat: "Smartwatch", img: "https://m.media-amazon.com/images/I/71R9G2Y9P0L._SX679_.jpg", affiliate: "#", rating: 4.8, reviews: 124 },
+    { id: 2, name: "Premium Leather Wallet", price: 1299, cat: "Accessories", img: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=500", affiliate: "#", rating: 4.5, reviews: 89 },
+    { id: 3, name: "Wireless Headphones", price: 18500, cat: "Audio", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500", affiliate: "#", rating: 4.9, reviews: 210 },
+    { id: 4, name: "Golden Fountain Pen", price: 4500, cat: "Stationery", img: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=500", affiliate: "#", rating: 4.7, reviews: 56 }
 ];
 
-let currentPage = 1;
-const productsPerPage = 10;
-let currentCat = "All";
+const insights = {
+    "Smartwatch": "Stay ahead of time with elite health tracking and seamless connectivity.",
+    "Audio": "Experience studio-quality sound that transports you to another world.",
+    "Accessories": "Define your class with minimal yet powerful details. Perfect craftsmanship.",
+    "Stationery": "Turn every word into a legacy. Premium tools for visionary minds.",
+    "Default": "Experience the pinnacle of luxury. Handpicked for quality and elegance."
+};
 
-function init() {
-    renderTabs();
-    filterProducts();
-}
-
-function renderTabs() {
-    const container = document.getElementById('categoryTabs');
-    container.innerHTML = categories.map(c => 
-        `<div class="tab ${c === currentCat ? 'active' : ''}" onclick="setCategory(this, '${c}')">${c}</div>`
-    ).join('');
-}
-
-function setCategory(el, cat) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
-    currentCat = cat;
-    currentPage = 1;
-    filterProducts();
-}
-
-function filterProducts() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    let filtered = products.filter(p => {
-        const matchesCat = currentCat === "All" || p.cat === currentCat;
-        const matchesSearch = p.name.toLowerCase().includes(searchTerm);
-        return matchesCat && matchesSearch;
-    });
-    displayPage(filtered);
-}
-
-function displayPage(data) {
-    const startIndex = (currentPage - 1) * productsPerPage;
-    const paginatedData = data.slice(startIndex, startIndex + productsPerPage);
-    renderGrid(paginatedData);
-    document.getElementById('pageInfo').innerText = `Page ${currentPage}`;
-    document.getElementById('prevBtn').disabled = currentPage === 1;
-    document.getElementById('nextBtn').disabled = startIndex + productsPerPage >= data.length;
-}
-
-function changePage(step) {
-    currentPage += step;
-    filterProducts();
-    window.scrollTo({ top: 350, behavior: 'smooth' });
+function toggleWishlist(btn) {
+    btn.classList.toggle('active');
+    btn.innerHTML = btn.classList.contains('active') ? '❤️' : '🤍';
 }
 
 function renderGrid(data) {
     const grid = document.getElementById('productGrid');
     if (data.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding:50px; opacity:0.5; font-size:12px;">No products in this category yet.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding:50px; opacity:0.5;">No products found.</p>`;
         return;
     }
-    grid.innerHTML = data.map(p => `
+    
+    grid.innerHTML = data.map(p => {
+        const message = insights[p.cat] || insights["Default"];
+        return `
         <div class="card">
+            <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
             <img src="${p.img}" alt="${p.name}">
             <div class="card-content">
+                <div class="smart-message">✨ ${message}</div>
+                <div class="rating">⭐⭐⭐⭐⭐ (${p.reviews} reviews)</div>
                 <h3>${p.name}</h3>
-                <p class="product-desc">${p.desc}</p>
                 <div class="price">₹${p.price.toLocaleString()}</div>
-                <a href="${p.affiliate}" target="_blank" rel="nofollow" class="btn-buy">Buy Now</a>
+                <a href="${p.affiliate}" class="btn-buy" target="_blank">Buy Now</a>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 }
 
-document.getElementById('searchInput').addEventListener('input', () => {
-    currentPage = 1;
-    filterProducts();
-});
+let currentCat = "All";
+function renderTabs() {
+    const container = document.getElementById('categoryTabs');
+    container.innerHTML = categories.map(c => `<div class="tab ${c === currentCat ? 'active' : ''}" onclick="setCategory('${c}')">${c}</div>`).join('');
+}
 
-document.getElementById('themeToggle').addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
+function setCategory(cat) { currentCat = cat; renderTabs(); filterProducts(); }
 
-init();
+function filterProducts() {
+    const term = document.getElementById('searchInput').value.toLowerCase();
+    const priceVal = document.getElementById('priceRange').value;
+    const filtered = products.filter(p => {
+        const matchesCat = (currentCat === "All" || p.cat === currentCat);
+        const matchesSearch = p.name.toLowerCase().includes(term);
+        let matchesPrice = true;
+        if (priceVal !== "all") {
+            const [min, max] = priceVal.split('-').map(Number);
+            matchesPrice = max ? (p.price >= min && p.price <= max) : p.price >= min;
+        }
+        return matchesCat && matchesSearch && matchesPrice;
+    });
+    renderGrid(filtered);
+}
+
+document.getElementById('searchInput').addEventListener('input', filterProducts);
+document.getElementById('priceRange').addEventListener('change', filterProducts);
+renderTabs();
+renderGrid(products);
 </script>
 </body>
 </html>
