@@ -164,7 +164,7 @@ function renderGrid(data) {
         const message = insights[p.cat] || insights["Default"];
         
         // Related Products Logic: Filter same category, exclude current product, take 3
-        let related = products.filter(r => r.cat === p.cat && r.name !== p.name).slice(0, 3);
+        let related = products.filter(r => r.cat === p.cat && r.name !== p.name).slice(0, 7);
         let relatedNames = related.length > 0 ? `<div class="related-tag">Similar: ${related.map(r => r.name).join(', ')}</div>` : "";
 
         return `
