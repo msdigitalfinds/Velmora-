@@ -48,7 +48,6 @@
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         .card { background: #111; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); display: flex; flex-direction: column; position: relative; }
         
-        /* Wishlist Icon */
         .wishlist-btn { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 10; font-size: 16px; transition: 0.3s; }
         .wishlist-btn.active { color: #ff4757; }
 
@@ -57,12 +56,14 @@
         
         .smart-message { font-size: 10px; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 8px; border-left: 3px solid var(--gold); margin-bottom: 10px; border-radius: 0 4px 4px 0; line-height: 1.4; min-height: 40px; }
 
-        /* Review Stars */
         .rating { color: var(--gold); font-size: 10px; margin-bottom: 5px; }
         
         .card-content h3 { font-size: 13px; margin: 5px 0; color: var(--white); height: 36px; overflow: hidden; }
         .price { color: var(--gold); font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
         .btn-buy { display: block; background: var(--gold); color: #000; text-align: center; padding: 10px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 11px; margin-top: auto; }
+
+        /* Related Section Label */
+        .related-tag { font-size: 9px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; opacity: 0.8; }
 
         footer { text-align: center; padding: 30px; background: #000; font-size: 11px; color: #555; border-top: 1px solid var(--border); }
     </style>
@@ -84,16 +85,9 @@
             <input type="text" id="searchInput" placeholder="Search elite products...">
             <select id="priceRange">
                 <option value="all">Price: All</option>
-                <option value="199-500">₹199 - ₹500</option>
-              <option value="500-1000">₹500 - ₹1,000</option>
-        
+                <option value="199-1000">₹199 - ₹1,000</option>
                 <option value="1000-5000">₹1,000 - ₹5,000</option>
-                <option value="5000-10000">5000 - ₹1,0000</option>
-        <option value="10000-25000">10000 - ₹25000</option>
-                <option value="25000-50000">₹199 - ₹1,000</option>
-        
-        
-                <option value="5000-above">Above ₹5,00000</option>
+                <option value="5000-above">Above ₹5,000</option>
             </select>
         </div>
         <div class="tabs" id="categoryTabs"></div>
@@ -138,12 +132,18 @@ function renderGrid(data) {
     
     grid.innerHTML = data.map(p => {
         const message = insights[p.cat] || insights["Default"];
+        
+        // Related Products Logic: Filter same category, exclude current product, take 3
+        let related = products.filter(r => r.cat === p.cat && r.name !== p.name).slice(0, 3);
+        let relatedNames = related.length > 0 ? `<div class="related-tag">Similar: ${related.map(r => r.name).join(', ')}</div>` : "";
+
         return `
         <div class="card">
             <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
             <img src="${p.img}" alt="${p.name}">
             <div class="card-content">
                 <div class="smart-message">✨ ${message}</div>
+                ${relatedNames}
                 <div class="rating">⭐⭐⭐⭐⭐ (${p.reviews} reviews)</div>
                 <h3>${p.name}</h3>
                 <div class="price">₹${p.price.toLocaleString()}</div>
