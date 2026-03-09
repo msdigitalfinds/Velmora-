@@ -3,23 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Velmora Luxury | Premium Smartwatches, Audio & Elite Collections</title>
-    <meta name="description" content="Discover Velmora Luxury's curated collection of elite essentials. Shop premium smartwatches, high-end audio, luxury stationery, and fashion accessories.">
-    <meta name="keywords" content="luxury shopping, premium smartwatches, elite accessories, Velmora Luxury, high-end electronics">
-    <meta name="author" content="Velmora Luxury">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Store",
-      "name": "Velmora Luxury",
-      "description": "Ultra Premium Collection of Elite Essentials",
-      "url": "https://yourdomain.com",
-      "category": "Luxury Lifestyle"
-    }
-    </script>
-
+    <title>Velmora Luxury | Premium Collections</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #d4af37; --dark: #0a0a0a; --gray: #1a1a1a; --white: #ffffff; --border: #333; }
@@ -30,42 +14,35 @@
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--gold); }
         
-        input, select { padding: 12px 20px; border-radius: 25px; border: 1px solid #444; background: #111; color: #fff; outline: none; transition: 0.3s; font-size: 14px; width: 100%; box-sizing: border-box; }
+        input { padding: 12px 20px; border-radius: 25px; border: 1px solid #444; background: #111; color: #fff; outline: none; transition: 0.3s; font-size: 14px; width: 100%; box-sizing: border-box; }
         
-        .hero { height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1513584684374-8bdb74a9fe2f?w=1400'); background-size: cover; background-position: center; padding: 0 10%; border-bottom: 1px solid var(--gold); }
-        .hero h1 { font-size: 2rem; margin-bottom: 10px; color: var(--white); }
-        .hero p { color: var(--gold); font-size: 0.9rem; max-width: 800px; font-style: italic; }
+        .hero { height: 30vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1513584684374-8bdb74a9fe2f?w=1400'); background-size: cover; padding: 0 10%; border-bottom: 1px solid var(--gold); }
+        .hero h1 { font-size: 1.8rem; color: var(--white); }
         
         .container { padding: 20px 5%; }
-        .filter-section { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
-        .search-price-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .filter-section { margin-bottom: 25px; }
         
         .tabs { display: flex; gap: 10px; overflow-x: auto; padding: 10px 0; scrollbar-width: none; }
-        .tabs::-webkit-scrollbar { display: none; }
-        .tab { padding: 8px 18px; background: #1a1a1a; cursor: pointer; border-radius: 30px; border: 1px solid var(--border); white-space: nowrap; font-size: 12px; color: #ccc; transition: 0.3s; }
-        .tab.active { background: var(--gold); color: #000; font-weight: 600; border-color: var(--gold); }
+        .tab { padding: 8px 18px; background: #1a1a1a; cursor: pointer; border-radius: 30px; border: 1px solid var(--border); white-space: nowrap; font-size: 12px; color: #ccc; }
+        .tab.active { background: var(--gold); color: #000; font-weight: 600; }
         
         .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .card { background: #111; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); display: flex; flex-direction: column; position: relative; }
+        .card { background: #111; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); display: flex; flex-direction: column; }
         
-        .wishlist-btn { position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.5); border: none; color: white; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 10; font-size: 16px; transition: 0.3s; }
-        .wishlist-btn.active { color: #ff4757; }
-
-        .card img { width: 100%; height: 150px; object-fit: cover; }
+        .card img { width: 100%; height: 160px; object-fit: cover; }
         .card-content { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; }
         
-        .smart-message { font-size: 10px; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 8px; border-left: 3px solid var(--gold); margin-bottom: 10px; border-radius: 0 4px 4px 0; line-height: 1.4; min-height: 40px; }
-
-        .rating { color: var(--gold); font-size: 10px; margin-bottom: 5px; }
+        .smart-message { font-size: 10px; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 8px; border-radius: 4px; margin-bottom: 10px; line-height: 1.4; }
+        .card-content h3 { font-size: 13px; margin: 5px 0; color: var(--white); min-height: 40px; }
         
-        .card-content h3 { font-size: 13px; margin: 5px 0; color: var(--white); height: 36px; overflow: hidden; }
-        .price { color: var(--gold); font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
-        .btn-buy { display: block; background: var(--gold); color: #000; text-align: center; padding: 10px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 11px; margin-top: auto; }
+        /* Related Products Section */
+        .related-box { margin-top: 10px; padding-top: 10px; border-top: 1px solid #222; }
+        .related-title { font-size: 10px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; font-weight: bold; }
+        .related-item { font-size: 10px; color: #888; display: block; margin-bottom: 3px; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-        /* Related Section Label */
-        .related-tag { font-size: 9px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; opacity: 0.8; }
+        .btn-buy { display: block; background: var(--gold); color: #000; text-align: center; padding: 10px; text-decoration: none; font-weight: 600; border-radius: 8px; font-size: 12px; margin-top: 15px; }
 
-        footer { text-align: center; padding: 30px; background: #000; font-size: 11px; color: #555; border-top: 1px solid var(--border); }
+        footer { text-align: center; padding: 30px; background: #000; font-size: 11px; color: #555; }
     </style>
 </head>
 <body>
@@ -75,21 +52,12 @@
 </nav>
 
 <section class="hero">
-    <h1>Velmora brings together performance, elegance, and distinction
-in a collection designed for the modern achiever.</p>
+    <h1>Performance, Elegance, Distinction</h1>
 </section>
 
 <div class="container">
     <div class="filter-section">
-        <div class="search-price-row">
-            <input type="text" id="searchInput" placeholder="Search elite products...">
-            <select id="priceRange">
-                <option value="all">Price: All</option>
-                <option value="199-1000">₹199 - ₹1,000</option>
-                <option value="1000-5000">₹1,000 - ₹5,000</option>
-                <option value="5000-above">Above ₹5,000</option>
-            </select>
-        </div>
+        <input type="text" id="searchInput" placeholder="Search elite products...">
         <div class="tabs" id="categoryTabs"></div>
     </div>
 
@@ -101,211 +69,72 @@ in a collection designed for the modern achiever.</p>
 </footer>
 
 <script>
-const categories = ["All", "Smartwatch", "Audio", "Accessories",  "Fashion", "Watches", "Electronics", "Beauty", "Skincare", "Fragrances", "Home Decor", "Kitchen", "Gadgets", "Gaming", "Fitness", "Travel", "Bags", "Jewelry", "Wellness"];
+const categories = ["All", "Smartwatch", "Audio", "Skincare", "Fitness", "Home Decor", "Beauty", "Watches", "Fragrances", "Travel", "Gaming", "Wellness"];
 
 const products = [
-    
-    {
-        id: 1,
-        name: "The Face Shop Rice & Ceramide Moisturizer Emulsion",
-        price: 674,
-        cat: "Skincare",
-        img: "aca.jpg", 
-        reviews: "1,250",
-        desc: "Lightweight Korean moisturizer with rice and ceramides. Hydrates, repairs skin barrier, and brightens for healthy glowing skin.",
-        affiliate: "https://amzn.to/3ODluoz"
-    },
-    {
-        id: 2,
-        name: "Wellcore Pure Micronised Creatine Powder 33 Servings",
-        price: 509,
-        cat: "Fitness",
-        img: "bab.jpg", 
-        reviews: "850",
-        desc: "Unflavoured creatine powder for enhanced muscle strength and rapid absorption.",
-        affiliate: "https://amzn.to/4rOprW4"
-    },
-    {
-        id: 3,
-        name: " The Artment Vista Arched Full Length Floor Mirror",
-        price: 6392,
-        cat: "Home Decor",
-        img: "a1.jpg",
-        reviews: "2,100",
-        desc: "Large arched full length mirror with premium aluminium frame. Can be wall mounted or free standing perfect for adding a luxury touch to living spaces.",
-        affiliate: "https://amzn.to/4aO8g0R" 
-    },
-    {
-        id: 4,
-        name: " Thalgo Brightening Cream 50ml Dark Spot Correction",
-        price: 7700,
-        cat: "Beauty",
-        img: "a2.jpg",
-        reviews: "2,630",
-        desc: "Luxury brightening cream designed to reduce dark spots and promote an even complexion. Nourishes skin while enhancing natural radiance ",
-        affiliate: " https://amzn.to/47m9fmx" 
-    },
-    {
-        id: 5,
-        name: " Fire Boltt Aero Luxe TWS Bluetooth Earbuds 70H Playtime",
-        price: 999,
-        cat: "Audio",
-        img: " a3.jpg",
-        reviews: "2,725",
-        desc: "Wireless earbuds with custom EQ Bluetooth 5.4 and up to 70 hours playtime. Fast charging case and 50ms low latency mode for smooth gaming and powerful audio.",
-        affiliate: " https://amzn.to/4rP6se1" 
-    },
-    {
-        id: 6,
-        name: " Guess Stainless Steel Women Gold Dial Analog Watch ",
-        price:7997,
-        cat: "Watches",
-        img: "a5.jpg",
-        reviews: "1,470",
-        desc: " Elegant stainless steel women watch with gold tone dial and multifunction display. Premium gold band design crafted for a refined luxury look",
-        affiliate: " https://amzn.to/4l7G5gB" 
-    },
-    {
-        id: 7,
-        name: " Noise Diva Smartwatch for Women AMOLED Display",
-        price: 2999,
-        cat: "Smartwatch",
-        img: "a6.jpg",
-        reviews: "3,140",
-        desc: "Stylish smartwatch with diamond cut dial glossy metallic finish and vibrant AMOLED display. Features 100 plus watch faces female cycle tracker and smart health monitoring",
-        affiliate: "https://amzn.to/4bmEv7q" 
-    },
-    {
-        id: 8,
-        name: " Bellavita Luxury Mood Collection Perfume Gift Set 3x15ML ",
-        price: 494,
-        cat: "Fragrances",
-        img: " a7.jpg",
-        reviews: "3,350",
-        desc: "Premium EDP perfume gift set for women featuring Alpha Fantasy and Magnetic variants. Long lasting fragrance with notes of pink pepper jasmine and moss ",
-        affiliate: " https://amzn.to/4cJMxbR" 
-    },
-    {
-        id: 9,
-        name: "BNK Decor Modern 6 Tier Crystal Ceiling Chandelier ",
-        price: 14999,
-        cat: "Home Decor",
-        img: "a8.jpg",
-        reviews: "4,340",
-        desc: "Elegant 6 tier round crystal ceiling lamp with three color LED lighting. Perfect for living room and hall decoration with a modern luxury look.",
-        affiliate: "https://amzn.to/4rVq54g" 
-    },
-    {
-        id: 10,
-        name: "Armaf Club De Nuit Intense Man Pure Parfum 150ML  ",
-        price:5387,
-        cat: "Fragrances",
-        img: " a9.jpg",
-        reviews: "1,190",
-        desc: " Powerful long lasting pure parfum for men with a bold and refined scent profile. Designed for confidence elegance and all day performance.",
-        affiliate:" https://amzn.to/4ldayKy" 
-    },
-    {
-        id: 11,
-        name: "Amazon Basics True Wireless Earbuds",
-        price:649,
-        cat: "Audio",
-        img: "b2.jpg",
-        reviews: "1,340",
-        desc: "Sleek wireless earbuds with Bluetooth 5.4, low-latency gaming mode, and up to 36 hours of total playtime. Lightweight, water-resistant design with clear mic calls for everyday music and gaming",
-        affiliate: "https://amzn.to/47ccCwk" 
-    },
-    {
-        id: 12,
-        name: "Armaf Hunter Intense Eau De Parfum for Men",
-        price:2136,
-        cat: "Fragrances",
-        img: "b3.jpg",
-        reviews: "5,210",
-        desc: "A bold woody aromatic fragrance with a sophisticated blend of fresh citrus, warm spices, and deep masculine notes. Long-lasting EDP crafted for men who want a powerful and elegant signature scent.",
-        affiliate: "https://amzn.to/4stScY7" 
-    },
-    {
-        id: 13,
-        name: "SNEAKARE Premium Travel Shoe Bag",
-        price:1599,
-        cat: "Travel",
-        img: "b4.jpg",
-        reviews: "1,218",
-        desc: "A premium travel shoe bag with airflow vents, extra storage pockets, and a removable crossbody strap. Designed to protect and organize your sneakers in style while travelling",
-        affiliate: "https://amzn.to/4b7bqLU" 
-    },
-    {
-        id: 14,
-        name: "Esportic 4K Retro Wireless Game Console Stick",
-        price:2179,
-        cat: "Gaming",
-        img: "b5.jpg",
-        reviews: "3,460",
-        desc: "A compact 4K wireless game console loaded with 21,000+ classic retro games, featuring HDMI output and dual controllers for an immersive two-player gaming experience",
-        affiliate: "https://amzn.to/46FP6I3" 
-    },
-    {
-        id: 15,
-        name: "Noise Halo 2 AMOLED Smartwatch with Rotating Dial",
-        price: 3999,
-        cat: "Smartwatch",
-        img: "b6.jpg",
-        reviews: "6,390",
-        desc: " Noise Halo 2 features a premium stainless steel build, a functional rotating dial, and a vibrant 1.43-inch AMOLED display. Designed for luxury style and smart performance with smooth controls and advanced smartwatch features",
-        affiliate: "https://amzn.to/4usRM6b" 
-    },
-    { id:16, name:"PLIX Plant Fix Niacinamide & Salicylic Acid Acne Care Combo", price:649, category:"Skincare", img:"c6.jpg", desc:" PLIX Plant Fix skincare combo with 2% Niacinamide, Salicylic Acid, Witch Hazel and Jamun Extract helps reduce pimples, control excess oil and improve skin clarity. Lightweight formula ideal for oily and acne-prone skin", affiliate:"https://amzn.to/4bwnSVZ"},
-    { id:17, name:"Denver Hamilton, Imperial & Caliber Perfume Gift Set (3 x 100ml)", price:899, category:"Fragrances", img:"c7.jpg", desc:"Denver luxury perfume combo featuring Hamilton, Imperial and Caliber fragrances. Long-lasting masculine scents designed for a bold, sophisticated everyday presence", affiliate:"https://amzn.to/4raVyhl"},
-    { id:18, name:"Seiko SSK003K1 Blue Dial Stainless Steel Automatic watch  ", price:40500, category:"Smartwatch", img:"c8.jpg", desc:" Seiko luxury automatic watch featuring a deep blue dial, stainless steel bracelet, and precision Japanese craftsmanship. A bold and elegant timepiece built for timeless style", affiliate:"https://amzn.to/409LPNv"},
-
-    { id:19, name:" BEHOMA Gold Dancing Peacock Decorative Showpiece", price:863, category:" Home Decor", img:"c11.jpg", desc:" Elegant gold dancing peacock décor with scented glass candle, symbolizing love, beauty, and good luck. A luxurious centerpiece perfect for home decoration and special gift occasions", affiliate:" https://amzn.to/46Jbnok"},
-    { id:20, name:" Khayal Suryatapi Shilajit Gold Himalayan Resin", price:4999, category:"Wellness", img:"c10.jpg", desc:"Premium Himalayan Shilajit enriched with 24K Swarna Bhasma and Swarna Vark, designed to support energy, stamina, and immunity. A powerful natural wellness supplement for men and women ", affiliate:" https://amzn.to/4lfWK1M"}
-     
+    { id: 1, name: "The Face Shop Rice & Ceramide Moisturizer", cat: "Skincare", img: "aca.jpg", affiliate: "https://amzn.to/3ODluoz" },
+    { id: 2, name: "Wellcore Pure Micronised Creatine Powder", cat: "Fitness", img: "bab.jpg", affiliate: "https://amzn.to/4rOprW4" },
+    { id: 3, name: "The Artment Vista Arched Full Mirror", cat: "Home Decor", img: "a1.jpg", affiliate: "https://amzn.to/4aO8g0R" },
+    { id: 4, name: "Thalgo Brightening Cream Dark Spot Correction", cat: "Beauty", img: "a2.jpg", affiliate: "https://amzn.to/47m9fmx" },
+    { id: 5, name: "Fire Boltt Aero Luxe TWS Earbuds", cat: "Audio", img: "a3.jpg", affiliate: "https://amzn.to/4rP6se1" },
+    { id: 6, name: "Guess Stainless Steel Gold Dial Watch", cat: "Watches", img: "a5.jpg", affiliate: "https://amzn.to/4l7G5gB" },
+    { id: 7, name: "Noise Diva Smartwatch for Women", cat: "Smartwatch", img: "a6.jpg", affiliate: "https://amzn.to/4bmEv7q" },
+    { id: 8, name: "Bellavita Luxury Mood Perfume Set", cat: "Fragrances", img: "a7.jpg", affiliate: "https://amzn.to/4cJMxbR" },
+    { id: 9, name: "BNK Decor 6 Tier Crystal Chandelier", cat: "Home Decor", img: "a8.jpg", affiliate: "https://amzn.to/4rVq54g" },
+    { id: 10, name: "Armaf Club De Nuit Intense Man Parfum", cat: "Fragrances", img: "a9.jpg", affiliate: "https://amzn.to/4ldayKy" },
+    { id: 11, name: "Amazon Basics True Wireless Earbuds", cat: "Audio", img: "b2.jpg", affiliate: "https://amzn.to/47ccCwk" },
+    { id: 12, name: "Armaf Hunter Intense Eau De Parfum", cat: "Fragrances", img: "b3.jpg", affiliate: "https://amzn.to/4stScY7" },
+    { id: 13, name: "SNEAKARE Premium Travel Shoe Bag", cat: "Travel", img: "b4.jpg", affiliate: "https://amzn.to/4b7bqLU" },
+    { id: 14, name: "Esportic 4K Retro Wireless Console", cat: "Gaming", img: "b5.jpg", affiliate: "https://amzn.to/46FP6I3" },
+    { id: 15, name: "Noise Halo 2 AMOLED Smartwatch", cat: "Smartwatch", img: "b6.jpg", affiliate: "https://amzn.to/4usRM6b" },
+    { id: 16, name: "PLIX Niacinamide Acne Care Combo", cat: "Skincare", img: "c6.jpg", affiliate: "https://amzn.to/4bwnSVZ" },
+    { id: 17, name: "Denver Hamilton & Imperial Gift Set", cat: "Fragrances", img: "c7.jpg", affiliate: "https://amzn.to/4raVyhl" },
+    { id: 18, name: "Seiko SSK003K1 Blue Dial Automatic", cat: "Watches", img: "c8.jpg", affiliate: "https://amzn.to/409LPNv" },
+    { id: 19, name: "BEHOMA Gold Dancing Peacock", cat: "Home Decor", img: "c11.jpg", affiliate: "https://amzn.to/46Jbnok" },
+    { id: 20, name: "Khayal Suryatapi Shilajit Gold Resin", cat: "Wellness", img: "c10.jpg", affiliate: "https://amzn.to/4lfWK1M" }
 ];
-    
-       
-const insights = {
-    "Smartwatch": "Stay ahead of time with elite health tracking and seamless connectivity.",
-    "Audio": "Experience studio-quality sound that transports you to another world.",
-    "Accessories": "Define your class with minimal yet powerful details. Perfect craftsmanship.",
-    "Stationery": "Turn every word into a legacy. Premium tools for visionary minds.",
-    "Default": "Experience the pinnacle of luxury. Handpicked for quality and elegance."
-};
 
-function toggleWishlist(btn) {
-    btn.classList.toggle('active');
-    btn.innerHTML = btn.classList.contains('active') ? '❤️' : '🤍';
-}
+const insights = {
+    "Smartwatch": "Stay ahead with elite tracking.",
+    "Audio": "Experience studio-quality sound.",
+    "Default": "Premium handpicked essentials."
+};
 
 function renderGrid(data) {
     const grid = document.getElementById('productGrid');
     if (data.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding:50px; opacity:0.5;">No products found.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; opacity:0.5;">No products found.</p>`;
         return;
     }
     
     grid.innerHTML = data.map(p => {
-        const message = insights[p.cat] || insights["Default"];
+        const msg = insights[p.cat] || insights["Default"];
         
-        // Related Products Logic: Filter same category, exclude current product, take 3
-        let related = products.filter(r => r.cat === p.cat && r.name !== p.name).slice(0, 7);
-        let relatedNames = related.length > 0 ? `<div class="related-tag">Similar: ${related.map(r => r.name).join(', ')}</div>` : "";
+        // Find Related: Same category, different ID
+        const related = products
+            .filter(r => r.cat === p.cat && r.id !== p.id)
+            .slice(0, 2); // Show top 2 related
+
+        let relatedHTML = "";
+        if(related.length > 0) {
+            relatedHTML = `
+                <div class="related-box">
+                    <div class="related-title">You may also like:</div>
+                    ${related.map(r => `<span class="related-item">• ${r.name}</span>`).join('')}
+                </div>`;
+        }
 
         return `
         <div class="card">
-            <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
             <img src="${p.img}" alt="${p.name}">
             <div class="card-content">
-                <div class="smart-message">✨ ${message}</div>
-                ${relatedNames}
-                <div class="rating">⭐⭐⭐⭐⭐ (${p.reviews} reviews)</div>
+                <div class="smart-message">✨ ${msg}</div>
                 <h3>${p.name}</h3>
-                <div class="price">₹${p.price.toLocaleString()}</div>
-                <a href="${p.affiliate}" class="btn-buy" target="_blank">Buy Now</a>
+                ${relatedHTML}
+                <a href="${p.affiliate}" class="btn-buy" target="_blank">View Details</a>
             </div>
-        </div>
-    `}).join('');
+        </div>`;
+    }).join('');
 }
 
 let currentCat = "All";
@@ -318,22 +147,15 @@ function setCategory(cat) { currentCat = cat; renderTabs(); filterProducts(); }
 
 function filterProducts() {
     const term = document.getElementById('searchInput').value.toLowerCase();
-    const priceVal = document.getElementById('priceRange').value;
     const filtered = products.filter(p => {
         const matchesCat = (currentCat === "All" || p.cat === currentCat);
         const matchesSearch = p.name.toLowerCase().includes(term);
-        let matchesPrice = true;
-        if (priceVal !== "all") {
-            const [min, max] = priceVal.split('-').map(Number);
-            matchesPrice = max ? (p.price >= min && p.price <= max) : p.price >= min;
-        }
-        return matchesCat && matchesSearch && matchesPrice;
+        return matchesCat && matchesSearch;
     });
     renderGrid(filtered);
 }
 
 document.getElementById('searchInput').addEventListener('input', filterProducts);
-document.getElementById('priceRange').addEventListener('change', filterProducts);
 renderTabs();
 renderGrid(products);
 </script>
